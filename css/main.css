@@ -3,6 +3,7 @@
   --text-1: #e4e5f1;
   --text-2: #a6abd8;
   --card-bg: #25273c;
+  --border: #323449;
 }
 
 * {
@@ -41,4 +42,12 @@ li {
   background-color: var(--card-bg);
   border: none;
   color: var(--text-1);
+}
+
+.todos__item {
+  padding: 0.5rem 0;
+}
+
+.todos__item:not(:last-child) {
+  border-bottom: 0.2rem solid var(--border);
 }
