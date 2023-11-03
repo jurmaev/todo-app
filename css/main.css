@@ -1,0 +1,44 @@
+:root {
+  --page-bg: #161722;
+  --text-1: #e4e5f1;
+  --text-2: #a6abd8;
+  --card-bg: #25273c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--page-bg);
+}
+
+input:focus {
+  outline: none;
+}
+
+li {
+  list-style-type: none;
+  color: var(--text-2);
+}
+
+.container {
+  width: min(40rem, 80%);
+  padding: 1.5rem 1rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  background-color: var(--card-bg);
+}
+
+.container:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.input {
+  padding: 0.5rem 0.25rem;
+  background-color: var(--card-bg);
+  border: none;
+  color: var(--text-1);
+}
