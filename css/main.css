@@ -4,6 +4,7 @@
   --text-2: #a6abd8;
   --card-bg: #25273c;
   --border: #323449;
+  --checkbox-blue: #3a7bfd;
 }
 
 * {
@@ -55,7 +56,68 @@ li {
   border-bottom: 0.1rem solid var(--border);
 }
 
-.todo__btn {
-  background: none;
+.todo__btn,
+.todo__checkbox {
+  background: transparent;
   border: none;
+}
+
+.checkbox__container {
+  position: relative;
+  cursor: pointer;
+  height: 1.25rem;
+  width: 1.25rem;
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
+
+.todo__checkbox {
+  /* position: absolute; */
+  opacity: 0;
+  cursor: pointer;
+  height: 1.25rem;
+  width: 1.25rem;
+  /* height: 0; */
+  /* width: 0; */
+}
+
+.todo__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.checkbox__container:hover .todo__checkbox ~ .todo__checkmark {
+  background-color: var(--page-bg);
+}
+
+.todo__checkbox:checked ~ .todo__checkmark {
+  background-color: var(--checkbox-blue);
+}
+
+.todo__checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox__container .todo__checkbox:checked ~ .todo__checkmark:after {
+  display: block;
+}
+
+.checkbox__container .todo__checkmark:after {
+  left: 0.44rem;
+  top: 0.23rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid white;
+  border-width: 0 0.125rem 0.125rem 0;
+  transform: rotate(45deg);
 }

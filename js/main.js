@@ -30,6 +30,9 @@
       const item = document.createElement('li');
       const closeBtn = document.createElement('button');
       const closeImg = document.createElement('img');
+      const checkboxContainer = document.createElement('div');
+      const checkbox = document.createElement('input');
+      const checkmark = document.createElement('span');
 
       closeImg.src = 'assets/close.svg';
       closeImg.alt = 'Delete todo';
@@ -39,11 +42,23 @@
       todoContainer.classList.add('todo__container');
       todoContainer.id = todo.id;
 
+      checkboxContainer.classList.add('checkbox__container');
+      checkbox.type = 'checkbox';
+      checkbox.classList.add('todo__checkbox');
+      checkmark.classList.add('todo__checkmark');
+
       item.classList.add('todo__item');
       item.textContent = todo.value;
+
       closeBtn.append(closeImg);
+
+      checkboxContainer.append(checkbox);
+      checkboxContainer.append(checkmark);
+
+      todoContainer.append(checkboxContainer);
       todoContainer.append(item);
       todoContainer.append(closeBtn);
+
       todosList.append(todoContainer);
 
       closeBtn.addEventListener('click', (e) => {
