@@ -44,10 +44,18 @@ li {
   color: var(--text-1);
 }
 
-.todos__item {
+.todo__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 0;
 }
 
-.todos__item:not(:last-child) {
-  border-bottom: 0.2rem solid var(--border);
+.todo__container:not(:last-child) {
+  border-bottom: 0.1rem solid var(--border);
+}
+
+.todo__btn {
+  background: none;
+  border: none;
 }
