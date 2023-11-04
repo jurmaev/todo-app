@@ -5,12 +5,11 @@
 
   const createTodo = document.querySelector('.input');
   const todosList = document.querySelector('.todo__list');
+  const addBtn = document.querySelector('.add__btn');
 
   addTodos(todos);
 
-  createTodo.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter') return;
-
+  addBtn.addEventListener('click', () => {
     const todoValue = createTodo.value.trim();
     if (!todoValue) return;
     currentTodo = {
@@ -22,6 +21,11 @@
     localStorage.setItem('todos', JSON.stringify(todos));
     createTodo.value = '';
     addTodos([currentTodo]);
+  });
+
+  createTodo.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    addBtn.click();
   });
 
   function addTodos(todos) {

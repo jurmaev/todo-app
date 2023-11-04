@@ -3,6 +3,7 @@
   --text-1: #e4e5f1;
   --text-2: #a6abd8;
   --text-3: #777a92;
+  --text-4: #4d5066;
   --card-bg: #25273c;
   --border: #323449;
   --checkbox-blue: #3a7bfd;
@@ -16,6 +17,10 @@
 
 body {
   background-color: var(--page-bg);
+}
+
+main {
+  padding: 3rem 0;
 }
 
 input:focus {
@@ -40,21 +45,32 @@ li {
 }
 
 .input {
-  padding: 0.5rem 0.25rem;
   background-color: var(--card-bg);
   border: none;
   color: var(--text-1);
+}
+
+.input::placeholder {
+  color: var(--text-4);
 }
 
 .todo__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 1.5rem 0;
+}
+
+.todo__container:last-child {
+  padding-bottom: 0;
+}
+
+.todo__container:first-child {
+  padding-top: 0;
 }
 
 .todo__container:not(:last-child) {
-  border-bottom: 0.1rem solid var(--border);
+  border-bottom: 0.15rem solid var(--border);
 }
 
 .todo__btn,
@@ -66,15 +82,15 @@ li {
 .checkbox__container {
   position: relative;
   cursor: pointer;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 .todo__checkbox {
   opacity: 0;
   cursor: pointer;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 .todo__checkmark {
@@ -86,6 +102,7 @@ li {
   border: 1px solid var(--border);
   border-radius: 50%;
   pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .checkbox__container:hover .todo__checkbox ~ .todo__checkmark {
@@ -107,12 +124,12 @@ li {
 }
 
 .checkbox__container .todo__checkmark:after {
-  left: 0.44rem;
-  top: 0.23rem;
-  width: 0.25rem;
+  left: 0.6rem;
+  top: 0.4rem;
+  width: 0.3rem;
   height: 0.5rem;
   border: solid white;
-  border-width: 0 0.125rem 0.125rem 0;
+  border-width: 0 0.15rem 0.15rem 0;
   transform: rotate(45deg);
 }
 
@@ -123,4 +140,20 @@ li {
 .todo__container.checked .todo__item {
   color: var(--text-3);
   text-decoration: line-through;
+}
+
+.add__btn {
+  height: 1.75rem;
+  width: 1.75rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add__btn:hover {
+  background-color: var(--checkbox-blue);
 }
