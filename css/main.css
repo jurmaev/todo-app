@@ -2,6 +2,7 @@
   --page-bg: #161722;
   --text-1: #e4e5f1;
   --text-2: #a6abd8;
+  --text-3: #777a92;
   --card-bg: #25273c;
   --border: #323449;
   --checkbox-blue: #3a7bfd;
@@ -67,20 +68,13 @@ li {
   cursor: pointer;
   height: 1.25rem;
   width: 1.25rem;
-  /* -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; */
 }
 
 .todo__checkbox {
-  /* position: absolute; */
   opacity: 0;
   cursor: pointer;
   height: 1.25rem;
   width: 1.25rem;
-  /* height: 0; */
-  /* width: 0; */
 }
 
 .todo__checkmark {
@@ -120,4 +114,13 @@ li {
   border: solid white;
   border-width: 0 0.125rem 0.125rem 0;
   transform: rotate(45deg);
+}
+
+.todo__item {
+  width: 90%;
+}
+
+.todo__container.checked .todo__item {
+  color: var(--text-3);
+  text-decoration: line-through;
 }

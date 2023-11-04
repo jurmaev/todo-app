@@ -34,6 +34,11 @@
       const checkbox = document.createElement('input');
       const checkmark = document.createElement('span');
 
+      if (todo.isCompleted) {
+        todoContainer.classList.add('checked');
+        checkbox.checked = true;
+      }
+
       closeImg.src = 'assets/close.svg';
       closeImg.alt = 'Delete todo';
       closeImg.classList.add('todo__close');
@@ -61,9 +66,23 @@
 
       todosList.append(todoContainer);
 
+      checkbox.addEventListener('click', (e) => {
+        if (e.target.checked) {
+          todoContainer.classList.add('checked');
+          todos.find((todo) => todo.id === todoContainer.id).isCompleted = true;
+        } else {
+          todoContainer.classList.remove('checked');
+          todos.find(
+            (todo) => todo.id === todoContainer.id
+          ).isCompleted = false;
+        }
+        localStorage.setItem('todos', JSON.stringify(todos));
+      });
+
       closeBtn.addEventListener('click', (e) => {
-        const id = e.target.parentElement.parentElement.id;
-        e.target.parentElement.parentElement.remove();
+        const id = todoContainer.id;
+        console.log(todoContainer.id, id);
+        todoContainer.remove();
         todos = todos.filter((todo) => todo.id !== id);
         localStorage.setItem('todos', JSON.stringify(todos));
       });
