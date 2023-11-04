@@ -6,8 +6,20 @@
   const createTodo = document.querySelector('.input');
   const todosList = document.querySelector('.todo__list');
   const addBtn = document.querySelector('.add__btn');
+  const controlBtns = document.querySelectorAll('.btn');
 
   addTodos(todos);
+
+  controlBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.id === 'clear') {
+        todos = todos.filter((todo) => !todo.isCompleted);
+        localStorage.setItem('todos', JSON.stringify(todos));
+        todosList.innerHTML = '';
+        addTodos(todos);
+      }
+    });
+  });
 
   addBtn.addEventListener('click', () => {
     const todoValue = createTodo.value.trim();
@@ -86,7 +98,6 @@
 
       closeBtn.addEventListener('click', (e) => {
         const id = todoContainer.id;
-        console.log(todoContainer.id, id);
         todoContainer.remove();
         todos = todos.filter((todo) => todo.id !== id);
         localStorage.setItem('todos', JSON.stringify(todos));

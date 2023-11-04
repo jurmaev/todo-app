@@ -142,13 +142,14 @@ li {
   border: 1px solid var(--border);
   border-radius: 50%;
   margin-right: 0.5rem;
-  color: white;
+  color: var(--text-2);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .add__btn:hover {
   background-color: var(--checkbox-blue);
+  color: white;
 }
 
 .todo__panel {
