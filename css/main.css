@@ -59,18 +59,11 @@ li {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 0;
-}
-
-.todo__container:last-child {
-  padding-bottom: 0;
+  border-bottom: 0.15rem solid var(--border);
 }
 
 .todo__container:first-child {
   padding-top: 0;
-}
-
-.todo__container:not(:last-child) {
-  border-bottom: 0.15rem solid var(--border);
 }
 
 .todo__btn,
@@ -156,4 +149,32 @@ li {
 
 .add__btn:hover {
   background-color: var(--checkbox-blue);
+}
+
+.todo__panel {
+  display: flex;
+  padding-top: 1.5rem;
+  justify-content: space-between;
+}
+
+.todo__filter {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: var(--text-4);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.todo__left {
+  color: var(--text-4);
 }

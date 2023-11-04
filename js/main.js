@@ -30,8 +30,8 @@
 
   function addTodos(todos) {
     todos.forEach((todo) => {
-      const todoContainer = document.createElement('div');
-      const item = document.createElement('li');
+      const todoContainer = document.createElement('li');
+      const item = document.createElement('span');
       const closeBtn = document.createElement('button');
       const closeImg = document.createElement('img');
       const checkboxContainer = document.createElement('div');
@@ -80,6 +80,7 @@
             (todo) => todo.id === todoContainer.id
           ).isCompleted = false;
         }
+        setItemsLeft();
         localStorage.setItem('todos', JSON.stringify(todos));
       });
 
@@ -89,7 +90,17 @@
         todoContainer.remove();
         todos = todos.filter((todo) => todo.id !== id);
         localStorage.setItem('todos', JSON.stringify(todos));
+        setItemsLeft();
       });
     });
+
+    setItemsLeft();
+  }
+
+  function setItemsLeft() {
+    const itemsLeft = document.querySelector('.todo__left');
+    itemsLeft.textContent = `${
+      document.querySelectorAll('.todo__container:not(.checked)').length
+    } items left`;
   }
 })();
