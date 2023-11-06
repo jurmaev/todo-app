@@ -127,7 +127,7 @@ li {
 }
 
 .todo__item {
-  width: 90%;
+  width: 85%;
 }
 
 .todo__container.checked .todo__item {
@@ -178,4 +178,8 @@ li {
 
 .todo__left {
   color: var(--text-4);
+}
+
+.btn--active{
+  color: var(--checkbox-blue);
 }
