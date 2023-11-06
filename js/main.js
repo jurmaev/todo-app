@@ -110,7 +110,7 @@
           localStorage.setItem('todos', JSON.stringify(todos));
         });
 
-        closeBtn.addEventListener('click', (e) => {
+        closeBtn.addEventListener('click', () => {
           const id = todoContainer.id;
           todoContainer.remove();
           todos = todos.filter((todo) => todo.id !== id);
@@ -126,7 +126,7 @@
   function setItemsLeft() {
     const itemsLeft = document.querySelector('.todo__left');
     itemsLeft.textContent = `${
-      document.querySelectorAll('.todo__container:not(.checked)').length
+      todos.filter((todo) => !todo.isCompleted).length
     } items left`;
   }
 
