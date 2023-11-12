@@ -78,6 +78,7 @@
         checkboxContainer.classList.add('checkbox__container');
         checkbox.type = 'checkbox';
         checkbox.classList.add('todo__checkbox');
+        checkbox.ariaLabel = 'Checkbox';
         checkmark.classList.add('todo__checkmark');
 
         item.classList.add('todo__item');
